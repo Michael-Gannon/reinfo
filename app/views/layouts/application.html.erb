@@ -8,11 +8,11 @@
 </head>
 <body>
 
-|| <%= link_to 'Home', :controller=>:welcome, :action=>:index %> |
-<%= link_to 'Queries', :controller=>:queries, :action=>:index %> ||
-<%= link_to 'Flot', :controller=>'flot', :action=>:index %> |
-<%= link_to 'JqPlot', :controller=>'jqplot', :action=>:index %> |
-<%= link_to 'GoogleCharts', :controller=>'google_charts', :action=>:index %>
+|| <%= link_to 'Home', root_url %> |
+<%= link_to 'Queries', queries_url %> ||
+<%= link_to 'Flot', flot_chats_url %> |
+<%= link_to 'JqPlot', jqplot_charts_url %> |
+<%= link_to 'GoogleCharts', google_charts_url %>
 
 <%= yield %>
 

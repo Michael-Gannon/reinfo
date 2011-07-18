@@ -50,12 +50,12 @@ Reinfo::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   root :to => "welcome#index"
-  match 'jqplot' => 'jqplot#index'
-  match 'flot' => 'flot#index'
-  match 'google_charts' => 'google_charts#index'
-
   resources :queries
+
   match 'queries/:id/execute' => 'queries#execute', :as => :execute
+  match 'jqplot' => 'jqplot#index', :as => :jqplot_charts
+  match 'flot' => 'flot#index', :as => :flot_chats
+  match 'google_charts' => 'google_charts#index', :as => :google_charts
 
   # See how all your routes lay out with "rake routes"
 
