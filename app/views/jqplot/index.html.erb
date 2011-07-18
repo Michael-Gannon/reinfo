@@ -1,0 +1,51 @@
+<%= stylesheet_link_tag 'jqplot/jquery.jqplot' %>
+<%= javascript_include_tag "jqplot/jquery.min" %>
+<%= javascript_include_tag "jqplot/jquery.jqplot.min" %>
+<%= javascript_include_tag "jqplot/plugins/jqplot.highlighter.min" %>
+<%= javascript_include_tag "jqplot/plugins/jqplot.cursor.min" %>
+<%= javascript_include_tag "jqplot/plugins/jqplot.dateAxisRenderer.min" %>
+
+<h3>JqPlot</h3>
+
+<div id="chartdiv1" style="height:400px;width:300px; "></div>
+<div id="chartdiv2" style="height:400px;width:300px; "></div>
+
+<script type=text/javascript>
+$(document).ready(function(){
+    $.jqplot('chartdiv1',  [[[1, 2],[3,5.12],[5,13.1],[7,33.6],[9,85.9],[11,219.9]]],
+    { title:'Exponential Line',
+      axes:{yaxis:{min:-10, max:240}},
+      series:[{color:'#5FAB78'}]
+    });
+
+    var line1=[['23-May-08', 578.55], ['20-Jun-08', 566.5], ['25-Jul-08', 480.88], ['22-Aug-08', 509.84],
+        ['26-Sep-08', 454.13], ['24-Oct-08', 379.75], ['21-Nov-08', 303], ['26-Dec-08', 308.56],
+        ['23-Jan-09', 299.14], ['20-Feb-09', 346.51], ['20-Mar-09', 325.99], ['24-Apr-09', 386.15]];
+    var line2=[['23-May-08', 1578.55], ['20-Jun-08', 1566.5], ['25-Jul-08', 1480.88], ['22-Aug-08', 1509.84],
+        ['26-Sep-08', 1454.13], ['24-Oct-08', 379.75], ['21-Nov-08', 303], ['26-Dec-08', 308.56],
+        ['23-Jan-09', 299.14], ['20-Feb-09', 1346.51], ['20-Mar-09', 1325.99], ['24-Apr-09', 386.15]];
+    var plot1 = $.jqplot('chartdiv2', [line1, line2], {
+        title:'Data Point Highlighting',
+        axes:{
+        xaxis:{
+            renderer:$.jqplot.DateAxisRenderer,
+            tickOptions:{
+                formatString:'%b&nbsp;%#d'
+            }
+        },
+        yaxis:{
+            tickOptions:{
+                formatString:'$%.2f'
+            }
+        }
+        },
+        highlighter: {
+            show: true,
+            sizeAdjust: 7.5
+        },
+        cursor: {
+            show: false
+        }
+  });
+});
+</script>

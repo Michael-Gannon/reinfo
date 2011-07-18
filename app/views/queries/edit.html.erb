@@ -1,0 +1,9 @@
+<h3>Edit query</h3>
+<p> <%= flash[:notice] %> </p>
+<%= form_for @query do |f| %>
+    <%= render :partial => "form", :object => f %>
+    <div class="action-buttons">
+      <%= f.submit "Update", :name => "update",:class=>'update-button' %>
+      <%= link_to f.submit("Cancel", :name => "cancel", :class=>'cancel-button'), :controller=>:queries, :action=>:index %>
+    </div>
+<% end %>

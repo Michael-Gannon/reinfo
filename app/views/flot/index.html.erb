@@ -1,0 +1,38 @@
+<%= javascript_include_tag "flot/jquery.min" %>
+<%= javascript_include_tag "flot/jquery.flot.min" %>
+<%= javascript_include_tag "flot/jquery.flot.navigate.min" %>
+
+<h3>Flot</h3>
+<div id="placeholder" style="width:600px;height:300px;"></div>
+
+<script type=text/javascript>
+$(function () {
+        function sumf(f, t, m) {
+        var res = 0;
+        for (var i = 1; i < m; ++i)
+            res += f(i * i * t) / (i * i);
+        return res;
+    }
+
+    var d1 = [];
+    for (var t = 0; t <= 2 * Math.PI; t += 0.01)
+        d1.push([sumf(Math.cos, t, 10), sumf(Math.sin, t, 10)]);
+    var data = [ d1 ];
+
+
+    var placeholder = $("#placeholder");
+    var options = {
+        series: { lines: { show: true }, shadowSize: 5 },
+        xaxis: { zoomRange: [0.1, 10], panRange: [-10, 10] },
+        yaxis: { zoomRange: [0.1, 10], panRange: [-10, 10] },
+        zoom: {
+            interactive: true
+        },
+        pan: {
+            interactive: true
+        }
+    };
+
+    var plot = $.plot(placeholder, data, options);
+});
+</script>

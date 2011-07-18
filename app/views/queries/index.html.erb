@@ -1,0 +1,9 @@
+<h3>List Queries</h3>
+
+<%= link_to 'create new query', :controller=>:queries, :action => :new %>
+<p> <%= flash[:notice] %> </p>
+<ul>
+<% @queries.each do | query | %>
+  <li><%= query.inspect %> - <%= link_to 'execute', :action => :execute, :id => query.id %> | <%= link_to 'edit', :action => :edit, :id => query.id %> | <%= link_to 'delete', query, :method=>:delete %></li>
+<% end %>
+</ul>
