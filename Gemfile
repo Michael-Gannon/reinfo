@@ -7,6 +7,7 @@ gem 'rails', '3.0.5'
 
 gem 'pg'
 gem 'nokogiri'
+gem 'jquery-rails', '>= 1.0.12'
 
 group :test do
   gem "rspec-rails"
