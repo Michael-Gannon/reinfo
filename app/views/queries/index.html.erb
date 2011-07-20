@@ -1,11 +1,41 @@
+<%= javascript_include_tag "jquery-ui-1.8.14.custom.min" %>
+
 <h3>List Queries</h3>
 
 <%= link_to 'create new query', new_query_url %>
 <p> <%= flash[:notice] %> </p>
-<ul>
 <% @queries.each do | query | %>
-      <li><%= query.inspect %> - <%= link_to 'execute', execute_url(query.id) %> |
+    <div class="draggable">
+      <p><%= query.name %> - <%= link_to 'execute', execute_url(query.id) %> |
                                  <%= link_to 'edit', edit_query_url(query.id) %> |
-                                 <%= link_to 'delete', query_url(query.id), :method=>:delete %></li>
+                                 <%= link_to 'delete', query_url(query), :method=>:delete %></p>
+    </div>
 <% end %>
-</ul>
+
+<div class="execution_result" style="padding-top:25px">
+  <h4>Execution output</h4>
+  <textarea rows="10" cols="70" readonly="true">
+    <%= flash[:execute_output].inspect unless flash[:execute_output].nil?  %>
+  </textarea>
+</div>
+
+<%= stylesheet_link_tag 'jqplot/jquery.jqplot' %>
+<%= javascript_include_tag "jqplot/jquery.jqplot.min" %>
+<%= javascript_include_tag "jqplot/plugins/jqplot.highlighter.min" %>
+<%= javascript_include_tag "jqplot/plugins/jqplot.cursor.min" %>
+<%= javascript_include_tag "jqplot/plugins/jqplot.dateAxisRenderer.min" %>
+<div id="chartdiv1" style="height:200px;width:700px;position:absolute;right:100px;top:100px; "></div>
+<script type=text/javascript>
+
+$(document).ready(function(){
+    function setPlotDataFromExecutionResult(plot_data) {
+        $('#chartdiv1').empty();
+        var data = [eval(plot_data)];
+        debugger;
+        plot = $.jqplot('chartdiv1', data, {});
+    }
+
+    setPlotDataFromExecutionResult($('textarea','.execution_result').text());
+});
+
+</script>

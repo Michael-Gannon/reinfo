@@ -1,10 +1,3 @@
-<%= stylesheet_link_tag 'jqplot/jquery.jqplot' %>
-<%= javascript_include_tag "jqplot/jquery.min" %>
-<%= javascript_include_tag "jqplot/jquery.jqplot.min" %>
-<%= javascript_include_tag "jqplot/plugins/jqplot.highlighter.min" %>
-<%= javascript_include_tag "jqplot/plugins/jqplot.cursor.min" %>
-<%= javascript_include_tag "jqplot/plugins/jqplot.dateAxisRenderer.min" %>
-
 <h1>Welcome!</h1>
 
 <p>here are the graphs for
@@ -16,4 +9,47 @@
 
 <p>create a new query here</p>
 <p>and here are your saved queries</p>
+
+<hr/>
+
+<%= javascript_include_tag "jquery-1.5.1.min" %>
+<%= javascript_include_tag "jquery-ui-1.8.14.custom.min" %>
+<%= stylesheet_link_tag "ui-lightness/jquery-ui-1.8.14.custom" %>
+<style>
+	#draggable { width: 100px; height: 100px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
+	#droppable { width: 150px; height: 150px; padding: 0.5em; float: left; margin: 10px; }
+	</style>
+	<script>
+	$(function() {
+		$( "#draggable" ).draggable();
+		$( "#droppable" ).droppable({
+			drop: function( event, ui ) {
+				$( this )
+					.addClass( "ui-state-highlight" )
+					.find( "p" )
+						.html( "Dropped!" );
+			}
+		});
+	});
+	</script>
+
+
+
+<div class="demo">
+
+<div id="draggable" class="ui-widget-content">
+	<p>Drag me to my target</p>
+</div>
+
+<div id="droppable" class="ui-widget-header">
+	<p>Drop here</p>
+</div>
+
+</div><!-- End demo -->
+
+
+
+<div class="demo-description" style="display: none; ">
+<p>Enable any DOM element to be droppable, a target for draggable elements.</p>
+</div><!-- End demo-description -->
 

@@ -38,8 +38,8 @@ class QueriesController < ApplicationController
   def execute
     puts "executing query..."
     begin
-      response = eval(@query.query)
-      flash[:notice] = response
+      execute_output = eval(@query.query)
+      flash[:execute_output] = execute_output
     rescue
     end
     puts "done..."
