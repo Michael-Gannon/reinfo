@@ -56,6 +56,8 @@ Reinfo::Application.routes.draw do
   match 'jqplot' => 'jqplot#index', :as => :jqplot_charts
   match 'flot' => 'flot#index', :as => :flot_chats
   match 'google_charts' => 'google_charts#index', :as => :google_charts
+  match 'js_term' => 'js_term#index', :as => :js_term
+
 
   # See how all your routes lay out with "rake routes"
 

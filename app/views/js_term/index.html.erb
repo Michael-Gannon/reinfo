@@ -1,0 +1,38 @@
+<html>
+<head>
+  <%= stylesheet_link_tag 'js_term/js_term' %>
+
+  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag 'js_term/helper' %>
+  <%= javascript_include_tag 'js_term/js_term' %>
+</head>
+<body>
+<div id="terminal"></div>
+</body>
+
+<jsfs:root>
+  <jsfs:file name="copy.txt"></jsfs:file>
+  <jsfs:file name="contact.txt"></jsfs:file>
+  <jsfs:file name="linkedin.txt"></jsfs:file>
+  <jsfs:file name="resume.txt"></jsfs:file>
+  <jsfs:file name="skills.txt"></jsfs:file>
+
+  <jsfs:dir name="blog">
+    <jsfs:dir name="2011">
+
+    </jsfs:dir>
+  </jsfs:dir>
+
+  <jsfs:dir name="projects">
+    <jsfs:dir name="dius_computing">
+      <jsfs:file name="percepscion.txt"></jsfs:file>
+    </jsfs:dir>
+    <jsfs:dir name="xbio_systems">
+      <jsfs:file name="abda.txt"></jsfs:file>
+    </jsfs:dir>
+  </jsfs:dir>
+
+  <jsfs:file name="README.root"></jsfs:file>
+</jsfs:root>
+
+</html>
