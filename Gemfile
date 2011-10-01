@@ -8,11 +8,13 @@ gem 'rails', '3.0.5'
 gem 'pg'
 gem 'nokogiri'
 gem 'jquery-rails', '>= 1.0.12'
+gem 'vlad'
+gem 'vlad-git'
 
 group :test do
   gem "rspec-rails"
-  gem "autotest"
-  gem "autotest-rails"
+#  gem "autotest"
+#  gem "autotest-rails"
 end
 
 # Use unicorn as the web server
